@@ -26,14 +26,14 @@ $("#search-city").on("click", function (event) {
     console.log(city);
 
     // AJAX fetch() GET request
-    var weatherURL2 =
+    var weatherURL1 =
         "https://api.openweathermap.org/data/2.5/weather?q=" +
         city +
         "&appid=" +
         apiKey;
 
     $.ajax({
-        url: weatherURL2,
+        url: weatherURL1,
         method: "GET",
     }).then(function (response) {
         console.log(response);
@@ -68,14 +68,14 @@ $("#search-city").on("click", function (event) {
 
 function renderLastCityInfo() {
     $("#city-list").clear;
-    var weatherURL3 =
+    var weatherURL2 =
         "https://api.openweathermap.org/data/2.5/weather?q=" +
         lastCity +
         "&appid=" +
         apiKey;
 
     $.ajax({
-        url: weatherURL3,
+        url: weatherURL2,
         method: "GET",
     }).then(function (response) {
         console.log(response);
@@ -101,7 +101,7 @@ function renderCityName(response) {
 
 // render current weather conditions for city
 function renderCityInfo(lat, lon) {
-    var weatherURL2 =
+    var weatherURL3 =
         "https://api.openweathermap.org/data/2.5/onecall?lat=" +
         lat +
         "&lon=" +
@@ -110,7 +110,7 @@ function renderCityInfo(lat, lon) {
         apiKey;
 
     $.ajax({
-        url: weatherURL2,
+        url: weatherURL3,
         method: "GET",
     }).then(function (response) {
         // render city name, date, weather icon, the temperature, the humidity, the wind speed, and ..

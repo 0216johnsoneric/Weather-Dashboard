@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+header {
+    text-align: center;
+    color: white;
+    padding: 50px;
+    background-image: url('https://www.globalchange.gov/sites/globalchange/files/clouds-banner-style-large.jpg');
+    background-size: cover;
+}
+
+#city-info {
+    margin: 10px;
+}
+
+.sidebar {
+    background-color: lightgray;
+    padding: 20px;
+}
+
+.daycard {
+    margin: 10px;
+}

@@ -14,8 +14,48 @@
     <title>Weather Dashboard</title>
 </head>
 
+<body>
 
 <body>
+
+    <header class="header">
+        <h1>Weather Dashboard</h1>
+    </header>
+
+    <!-- Sidebar for city search -->
+    <div class="row container-fluid">
+        <div class="col-3 sidebar">
+            <h3>Search for a City:</h3>
+            <div class="input-group mb-3">
+                <input type="text" id="city-input" class="form-control" placeholder="City Name" aria-describedby="search-city" />
+                
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="search-city">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            <ul class="list-group" id="city-list"></ul>
+        </div>
+
+        <!-- Render city data here -->
+        <div class="col" id="city-info">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3>Today's Forecast</h3>
+                    <h5 class="card-title"></h5>
+                    <p class="card-text" id="temperature"></p>
+                    <p class="card-text" id="humidity"></p>
+                    <p class="card-text" id="wind-speed"></p>
+                    <p class="card-text" id="uv-index"></p>
+                </div>
+            </div>
+            <h3>5-Day Forecast</h3>
+            <div class="row row-cols-3" id="forecast"></div>
+        </div>
+    </div>
+    </div>
+    <!-- Render Daily Forcast here -->
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>

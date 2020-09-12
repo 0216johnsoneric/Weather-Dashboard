@@ -19,7 +19,7 @@
     </header>
 
     <!-- City Search Sidebar-->
-    <div class="row container-fluid">
+    <div class="row container-fluid" id="entire">
         <div class="col-3 sidebar">
             <h3>Search for your City:</h3>
             
@@ -35,11 +35,16 @@
             <ul class="list-group" id="city-list"></ul>
         </div>
 
-        <!-- City Search/Daily Forecast rendered data -->
+
         <div class="col" id="city-info">
             <div class="card">
+                <nav class="navbar navbar-light bg-light justify-content-center">
+                    <span class="navbar-brand mb-0">
+                        <h3>Today's Forecast</h3>
+                    </span>
+                </nav>
                 <div class="card-body">
-                    <h3>Today's Forecast</h3>
+                    <!-- <h3>Today's Forecast</h3> -->
                     <h5 class="card-title"></h5>
                     <p class="card-text" id="temperature"></p>
                     <p class="card-text" id="humidity"></p>
@@ -49,8 +54,12 @@
             </div>
 
             <!-- 5-Day Forecast rendered -->
-            <h3>5-Day Forecast</h3>
-            <div class="row row-cols-3" id="forecast"></div>
+            <nav class="navbar navbar-light bg-light justify-content-center">
+                <span class="navbar-brand mb-0"><h3>5-Day Forecast</h3></span>
+            </nav>
+            <!-- <h3>5-Day Forecast</h3> -->
+            <div class="row row-cols-3 justify-content-center" id="forecast"></div>
+            
         </div>
     </div>
     </div>

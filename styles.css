@@ -15,6 +15,10 @@ header {
     background-size: cover;
 }
 
+/* #entire {
+    background-color: lightgray;
+} */
+
 #city-info {
     margin: 10px;
 }
@@ -29,6 +33,7 @@ header {
     padding: 20px;
 }
 
-/* .daycard {
+.daycard {
     margin: 10px;
-} */
+    font: 400;
+} 

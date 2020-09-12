@@ -7,7 +7,7 @@ var cities = [];
 
 if (localStorage.getItem("cities")) {
     savedCities = JSON.parse(localStorage.getItem("cities"));
-    console.log(savedCities);
+    // console.log(savedCities);
     for (var i = 0; i < savedCities.length; i++) {
         lastCitySearched = savedCities.length - 1;
         var lastCity = savedCities[lastCitySearched];
@@ -15,15 +15,14 @@ if (localStorage.getItem("cities")) {
 } else {
     cities;
 }
-console.log(cities);
-renderLastCityInfo();
+// console.log(cities);
+renderLastCity();
 
 // City Search on click function
 $("#search-city").on("click", function (event) {
     
     event.preventDefault();
     var city = $("#city-input").val();
-    console.log(city);
 
     // AJAX fetch() GET request
     var weatherURL1 =
@@ -66,7 +65,7 @@ $("#search-city").on("click", function (event) {
     });
 });
 
-function renderLastCityInfo() {
+function renderLastCity() {
     $("#city-list").clear;
     var weatherURL2 =
         "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -119,7 +118,7 @@ function renderCityInfo(lat, lon) {
         $("#wind-speed").text(`Wind Speed: ${response.current.wind_speed} MPH`);
         $("#uv-index").text(`UV Index: `);
 
-        // UV index with a color that indicates whether the conditions are favorable, moderate, or severe
+        // UV index with a color that indicates whether the conditions
         var uviSpan = $("<span>");
         uviSpan.text(`${response.current.uvi}`);
         
@@ -140,7 +139,52 @@ function renderCityInfo(lat, lon) {
         }
         $("#uv-index").append(uviSpan);
 
-        // render 5-Day Forecast
-        // renderForecast(response);
+       
+        cityForecast(response);
+    });
+}
+
+ // 5-Day Forecast
+function cityForecast(response) {
+    $("#forecast").empty();
+   var days = response.daily;
+
+    // index [1 - 5] of the city daily array (next 5days after current day)
+    days.slice(1, 6).map((day) => {
+        var dayCard = $("<div>");
+        
+        dayCard.addClass("card col-md-5 daycard");
+        dayCard.css("background-color", "lightskyblue");
+        dayCard.css("font-size", "20px");
+
+        var dayCardBody = $("<div>");
+        dayCardBody.addClass("card-body");
+        dayCard.append(dayCardBody);
+
+        var dayCardName = $("<h6>");
+        dayCardName.addClass("card-title");
+        
+        // take the date of the response object and format it to (MM/DD/YYYY)
+        var datestamp = moment.unix(day.dt);
+        var forecastDate = datestamp.format("L");
+        dayCardName.text(forecastDate);
+        dayCardBody.append(dayCardName);
+
+        //take the icon of the response object and set the url to the src of the iconURL
+        var weatherIcon = $("<img>");
+        var iconCode = day.weather[0].icon;
+        var iconUrl = "http://openweathermap.org/img/wn/" + iconCode + ".png";
+        weatherIcon.attr("src", iconUrl);
+        dayCardBody.append(weatherIcon);
+
+        var dayTemp = $("<p>");
+        dayTemp.text(`Temp: ${day.temp.max} \xB0F`);
+        dayCardBody.append(dayTemp);
+
+        var dayHumidity = $("<p>");
+        dayHumidity.text(`Humidity: ${day.humidity}%`);
+        dayCardBody.append(dayHumidity);
+
+        $("#forecast").append(dayCard);
     });
 }

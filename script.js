@@ -1,3 +1,4 @@
+$(document).ready(() => {
 // Global Variables
 const apiKey = "d28ff4135a52661e6397d3345d7f6119";
 
@@ -188,3 +189,5 @@ function cityForecast(response) {
         $("#forecast").append(dayCard);
     });
 }
+
+});

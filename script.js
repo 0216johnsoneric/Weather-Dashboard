@@ -156,7 +156,7 @@ function cityForecast(response) {
         
         dayCard.addClass("card col-md-5 daycard");
         dayCard.css("background-color", "lightskyblue");
-        dayCard.css("font-size", "20px");
+        dayCard.css("font-size", "15px");
 
         var dayCardBody = $("<div>");
         dayCardBody.addClass("card-body");
@@ -185,6 +185,14 @@ function cityForecast(response) {
         var dayHumidity = $("<p>");
         dayHumidity.text(`Humidity: ${day.humidity}%`);
         dayCardBody.append(dayHumidity);
+
+        var dayWind = $("<p>")
+        dayWind.text(`Wind Speed: ${day.wind_speed}MPH`);
+        dayCardBody.append(dayWind);
+
+        var dayUvi = $("<p>")
+        dayUvi.text(`UVI: ${day.uvi}`);
+        dayCardBody.append(dayUvi);
 
         $("#forecast").append(dayCard);
     });

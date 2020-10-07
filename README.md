@@ -6,7 +6,7 @@ Some additional functionality include a colored UV index that indicates if the w
 
 >Github Pages: https://0216johnsoneric.github.io/Weather-Dashboard/
 
-Clone lab: git clone git@github.com:0216johnsoneric/Weather-Dashboard.git
+>Clone lab: git clone git@github.com:0216johnsoneric/Weather-Dashboard.git
 Run in Browser w/ localhost or VS code browser extension
 
 <img src="assets/images/Screen Shot 2020-09-12 at 11.44.06 PM.png">

@@ -3,7 +3,8 @@ Weather Dashboard is a dynamic API application that is tasked with retrieving da
 When a user searches for a local city they are presented with current and future forecasts. The data displayed includes: The city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index. 
 Some additional functionality include a colored UV index that indicates if the whether the conditions are favorable, moderate, or severe. A weather icon also indicates weather conditions. localStorage is implemented to save city search history and the last city that was searched for when the application is initially deployed.
 
-Github Pages: https://0216johnsoneric.github.io/Weather-Dashboard/
+
+>Github Pages: https://0216johnsoneric.github.io/Weather-Dashboard/
 
 Clone lab: git clone git@github.com:0216johnsoneric/Weather-Dashboard.git
 Run in Browser w/ localhost or VS code browser extension
